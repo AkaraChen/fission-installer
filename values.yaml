@@ -1,0 +1,19 @@
+serviceMonitor:
+  enabled: true
+  namespace: "monitoring"
+  additionalServiceMonitorLabels:
+    release: "prometheus"
+podMonitor:
+  enabled: true
+  namespace: "monitoring"
+  additionalPodMonitorLabels:
+    release: "prometheus"
+grafana:
+  namespace: "monitoring"
+  dashboards:
+    enable: true
+opentelemetry:
+  otlpCollectorEndpoint: "otel-collector.opentelemetry-operator-system.svc:4317"
+  otlpInsecure: true
+  tracesSampler: "parentbased_traceidratio"
+  tracesSamplingRate: "1"
